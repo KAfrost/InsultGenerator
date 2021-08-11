@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div>
+    <input type="radio" id="insult" name="insult" value="insult">
+    <label for="insult">Insult</label>
+    <br>
+    <input type="radio" id="compliment" name="compliment" value="compliment">
+    <label for="compliment">Compliment</label>
+    <br>
+    <button class="btn btn-primary" type="submit">Give me what I asked for!</button>
+</div>
+    <p>
+        <h1 th:text="'You are ' + ${adj} + ${adj2} + ${name}"></h1>
+    </p>
+
+</body>
+</html>
