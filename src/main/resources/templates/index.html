@@ -6,17 +6,27 @@
 </head>
 <body>
 <div>
-    <input type="radio" id="insult" name="insult" value="insult">
-    <label for="insult">Insult</label>
-    <br>
-    <input type="radio" id="compliment" name="compliment" value="compliment">
-    <label for="compliment">Compliment</label>
-    <br>
-    <button class="btn btn-primary" type="submit">Give me what I asked for!</button>
+    <form th:action="@{/results}" method="post">
+     <span th:each="choice : ${choices}">
+                    <input
+                            type="radio"
+                            name="response"
+                            th:id="${choice.key}"
+                            th:value="${choice.key}"
+                            th:checked="${choice.key == 'all'}"/>
+                    <label th:for="${choice.key}" th:text="${choice.value}"></label>
+                </span>
+        <br>
+    <button type="submit">Give it to me!</button>
+    </form>
 </div>
-    <p>
+<div th:if="${adj} != null">
+    <p >
         <h1 th:text="'You are ' + ${adj} + ${adj2} + ${name}"></h1>
     </p>
-
+</div>
+<div th:if="${encourage} != null">
+    <p th:text="${encourage}"></p>
+</div>
 </body>
 </html>
